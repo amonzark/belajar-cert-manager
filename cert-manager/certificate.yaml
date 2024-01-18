@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx-test
+  namespace: default
+spec:
+  dnsNames:
+    - belajar-cert-managerlocal.online
+  secretName: nginx-test-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer

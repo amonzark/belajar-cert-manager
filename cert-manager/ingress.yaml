@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  labels:
+    app: nginx-test
+  annotations:
+    spec.ingressClassName: "nginx"
+spec:
+  tls:
+  - hosts:
+    - belajar-cert-managerlocal.online
+    secretName: nginx-test-tls
+  rules:
+  - host: belajar-cert-managerlocal.online
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: nginx-service
+            port: 
+              number: 80
