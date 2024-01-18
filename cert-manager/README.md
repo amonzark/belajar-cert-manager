@@ -119,7 +119,12 @@ kubectl -n ingress-nginx apply -f https://raw.githubusercontent.com/kubernetes/i
 kubectl -n ingress-nginx get pods
 
 kubectl -n ingress-nginx --address 0.0.0.0 port-forward svc/ingress-nginx-controller 80
+or
+sudo -E kubectl -n ingress-nginx --address 0.0.0.0 port-forward svc/ingress-nginx-controller 80
+
 kubectl -n ingress-nginx --address 0.0.0.0 port-forward svc/ingress-nginx-controller 443
+or
+sudo -E kubectl -n ingress-nginx --address 0.0.0.0 port-forward svc/ingress-nginx-controller 443
 ```
 
 We should be able to access NGINX in the browser and see a `404 Not Found` page: http://localhost/
